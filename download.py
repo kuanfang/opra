@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-"""Download videos in the OPRA Dataset.
+"""Download videos in the OPRA Dataset from YouTube.
 
 Author: Te-Lin Wu, Kuan Fang
 """
