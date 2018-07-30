@@ -49,6 +49,13 @@ def parse_args():
 
 def read_annotations(filename, num_points=10):
     """Read the annotations from file.
+
+    Args:
+        filename: Path to the annotations.
+        num_points: Number of annotated points.
+
+    Returns:
+        annotations: The dict of annotations.
     """
     annotations = []
 
@@ -78,7 +85,14 @@ def read_annotations(filename, num_points=10):
 
 
 def segment_videos(annotations, raw_video_dir, output_dir):
-    """Download videos in the playlist.
+    """Segment the videos.
+
+    Args:
+        annotations: The dict of the annotations.
+        raw_video_dir: Directory of raw videos.
+    
+    Returns:
+        output_dir: Output directory.
     """
     if not os.path.exists(output_dir):
         os.makedirs(output_dir)
@@ -87,7 +101,7 @@ def segment_videos(annotations, raw_video_dir, output_dir):
     for i, entry in enumerate(annotations):
         input_path = os.path.join(
                 raw_video_dir, entry['channel'], entry['playlist'],
-                '%s' % (entry['video']))
+                '%s.mp4' % (entry['video']))
         video_output_dir = os.path.join(output_dir, entry['channel'],
                                         entry['playlist'], entry['video'])
         output_path = os.path.join(
@@ -117,4 +131,3 @@ def main():
 
 if __name__ == '__main__':
     main()
-
