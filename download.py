@@ -24,18 +24,18 @@ def parse_args():
     parser = argparse.ArgumentParser()
 
     parser.add_argument(
-            '--i',
-            dest='input_dir',
+            '--playlist',
+            dest='playlist_dir',
             help='The playlist directory.',
             type=str,
             default='playlists')
 
     parser.add_argument(
-            '--o',
+            '--output',
             dest='output_dir',
             help='The output directory.',
             type=str,
-            default='/capri16/kuanfang/datasets/opra/raw_videos')
+            default='/capri16/kuanfang/datasets/opra/raw_videos_1')
 
     args = parser.parse_args()
 
@@ -44,8 +44,15 @@ def parse_args():
 
 def read_playlist(filename):
     """Read the playlist from file.
+
+    Args:
+        filename: Path to the playlist file.
+
+    Returns:
+        playlist: A dict of the playlist.
     """
     playlist = []
+
     with open(filename) as fin:
         num_videos = 0
         for line in csv.reader(fin, delimiter=','):
@@ -60,11 +67,16 @@ def read_playlist(filename):
                     }
             playlist.append(entry)
             num_videos += 1
+
     return playlist
 
 
-def download_playlist(playlist, output_dir):
+def download_videos_in_playlist(playlist, output_dir):
     """Download videos in the playlist.
+
+    Args: 
+        playlist: A dict of the playlist.
+        output_dir: The directory to save the downloaded videos.
     """
     if not os.path.exists(output_dir):
         os.makedirs(output_dir)
@@ -73,12 +85,11 @@ def download_playlist(playlist, output_dir):
 
     for i, entry in enumerate(playlist):
         filename = str(entry['index'])
-        output_path = os.path.join(output_dir, filename)
-        command = "youtube-dl -U {} -f mp4 -o {}".format(
+        output_path = os.path.join(output_dir, '%s.mp4' % (filename))
+        command = 'youtube-dl -U {} -f mp4 -o {}'.format(
                 entry['url'], output_path)
         print('Downloading video (%d / %d) from %s...' %
               (i, num_videos, entry['url']))
-        # print('Running: %s' % command)
         os.system(command)
 
 
@@ -89,13 +100,13 @@ def main():
         if not os.path.exists(args.output_dir):
             os.makedirs(args.output_dir)
 
-    for filename in glob.glob(os.path.join(args.input_dir, '*', '*.csv')):
+    for filename in glob.glob(os.path.join(args.playlist_dir, '*', '*.csv')):
         playlist = read_playlist(filename)
         print('Playlist %s contains %d videos.' % (filename, len(playlist)))
 
-        words = filename.strip('.csv').split('/')
-        output_dir = os.path.join(args.output_dir, words[-2], words[-1])
-        download_playlist(playlist, output_dir)
+        items = filename.strip('.csv').split('/')
+        output_dir = os.path.join(args.output_dir, items[-2], items[-1])
+        download_videos_in_playlist(playlist, output_dir)
 
 
 if __name__ == '__main__':

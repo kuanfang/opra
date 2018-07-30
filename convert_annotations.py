@@ -84,7 +84,7 @@ def convert_annotations(annotations):
         new_entry['playlist'] = sub_items[1]
         new_entry['video'] = sub_items[2]
         new_entry['start_time'] = float(items[1])
-        new_entry['end_time'] = float(items[2][:-4])
+        new_entry['duration'] = float(items[2][:-4])
         new_entry['image'] = entry['image'].replace(items[0], '')[2:]
         new_entry['image_shape'] = entry['image_shape']
         new_entry['points'] = entry['points']
@@ -99,9 +99,9 @@ def write_annotations(filename, annotations):
     """
     with open(filename, 'w') as fout:
         for entry in annotations:
-            line = '%s %s %s %s %.1f %.1f' % (
+            line = '%s %s %s %s %s %s %.1f %.1f' % (
                     entry['channel'], entry['playlist'], entry['video'],
-                    entry['image'],
+                    entry['start_time'], entry['end_time'], entry['image'],
                     entry['image_shape'][0], entry['image_shape'][1])
 
             for point in entry['points']:
