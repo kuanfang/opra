@@ -20,11 +20,11 @@ def plot_annotation(image, points, heatmap, alpha=0.7, fig=None):
 
     # Plot the points.
     ax1.scatter(points[:, 0], points[:, 1], c='r')
-    ax1.set_title('points annotation\nn_points: {}'.format(points.shape[0]))
+    ax1.set_title('points annotation\nnum_points = {}'.format(points.shape[0]))
 
     # Plot the heatmap.
     ax2.imshow(heatmap, cmap='gray', interpolation='nearest')
-    ax2.set_title('heatmap\nnp.sum(heatmap): {}'.format(np.sum(heatmap)))
+    ax2.set_title('heatmap\nnp.sum(heatmap) = {}'.format(np.sum(heatmap)))
 
     # Plot the overlay of heatmap on the target image.
     processed_heatmap = heatmap * 255 / np.max(heatmap)
@@ -33,7 +33,7 @@ def plot_annotation(image, points, heatmap, alpha=0.7, fig=None):
     assert processed_heatmap.shape == image.shape
     overlay = cv2.addWeighted(processed_heatmap, alpha, image, 1-alpha, 0)
     ax3.imshow(overlay, interpolation='nearest')
-    ax3.set_title('heatmap overlay\nalpha: {}'.format(alpha))
+    ax3.set_title('heatmap overlay\nalpha = {}'.format(alpha))
 
 
 def plot_video(video_path):
