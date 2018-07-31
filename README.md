@@ -30,7 +30,7 @@ sudo apt-get update
 sudo apt-get install ffmpeg  
 ```
 
-To visualize the dataset using Jupyter notebooks, these packages need to be installed: [NumPy](https://scipy.org/install.html), [OpenCV](https://docs.opencv.org/3.4.1/d2/de6/tutorial_py_setup_in_ubuntu.html), [matplotlib](https://matplotlib.org/users/installing.html), [Jupyter](http://jupyter.org/install).
+To visualize the dataset using Jupyter notebooks, these packages need to be installed: [NumPy](https://scipy.org/install.html), [OpenCV](https://docs.opencv.org/3.4.1/d2/de6/tutorial_py_setup_in_ubuntu.html), [Matplotlib](https://matplotlib.org/users/installing.html), [Jupyter](http://jupyter.org/install).
 
 ### Usage
 
@@ -60,4 +60,4 @@ To visualize the dataset, run the Jupyter notebook:
 jupyter notebook
 ```
 
-In the browser (Chrome and FireFox are recommended), go to `http://localhost:8888/notebooks/notebooks/visualize_annotations.ipynb`. In the notebook there is a demo of loading the dataset and visualizing the video clip, the target image, and the annotation.
+Open `./notebooks/visualize_annotations.ipynb` in the browser (Chrome and FireFox are recommended) at this [link](http://localhost:8888/notebooks/notebooks/visualize_annotations.ipynb). The notebook provide a basic demo of loading the dataset and visualizing the video clip, the target image, and the annotation.
