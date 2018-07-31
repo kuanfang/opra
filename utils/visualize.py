@@ -4,10 +4,8 @@ import matplotlib.pyplot as plt
 import io
 import base64
 
-from config import cfg
 
-
-def vis_annotation(image, points, heatmap, alpha=0.7, fig=None):
+def plot_annotation(image, points, heatmap, alpha=0.7, fig=None):
     """Visualize the heatmap on the target image.
     """
     if fig is None:
@@ -29,16 +27,16 @@ def vis_annotation(image, points, heatmap, alpha=0.7, fig=None):
     ax2.set_title('heatmap\nnp.sum(heatmap): {}'.format(np.sum(heatmap)))
 
     # Plot the overlay of heatmap on the target image.
-    _heatmap = heatmap * 255 / np.max(heatmap)
-    _heatmap = np.tile(_heatmap[:, :, np.newaxis], (1, 1, 3))
-    _heatmap = _heatmap.astype('uint8')
-    assert _heatmap.shape == image.shape
-    overlay = cv2.addWeighted(_heatmap, alpha, image, 1-alpha, 0)
+    processed_heatmap = heatmap * 255 / np.max(heatmap)
+    processed_heatmap = np.tile(processed_heatmap[:, :, np.newaxis], (1, 1, 3))
+    processed_heatmap = processed_heatmap.astype('uint8')
+    assert processed_heatmap.shape == image.shape
+    overlay = cv2.addWeighted(processed_heatmap, alpha, image, 1-alpha, 0)
     ax3.imshow(overlay, interpolation='nearest')
     ax3.set_title('heatmap overlay\nalpha: {}'.format(alpha))
 
 
-def vis_video(video_path):
+def plot_video(video_path):
     """Visualize the video clip in the Ipython notebook.
     """
     from IPython.display import HTML
@@ -50,16 +48,3 @@ def vis_video(video_path):
                    </video>'''.format(encoded.decode('ascii')) 
 
     return HTML(data=video_tag)
-
-
-def vis_batch_video(video, valids):
-    """Visualize the video sampled from a minibatch.
-    """
-    for t in xrange(video.shape[0]):
-        fig = plt.figure(figsize=(5, 5))
-        ax1 = fig.add_subplot(1, 1, 1)
-
-        image = video[t] + cfg.PIXEL_MEANS
-        image = cv2.cvtColor(image.astype('uint8'), cv2.COLOR_BGR2RGB)
-        ax1.imshow(image)
-        ax1.set_title('t: {:d}, valid: {}'.format(t, valids[t]))

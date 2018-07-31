@@ -30,7 +30,7 @@ sudo apt-get update
 sudo apt-get install ffmpeg  
 ```
 
-To visualize the dataset using the Ipython notebooks, these packages need to be installed: [NumPy](https://scipy.org/install.html), [OpenCV](https://docs.opencv.org/3.4.1/d2/de6/tutorial_py_setup_in_ubuntu.html), [Pillow](https://pillow.readthedocs.io/en/latest/installation.html), [Jupyter](http://jupyter.org/install).
+To visualize the dataset using Jupyter notebooks, these packages need to be installed: [NumPy](https://scipy.org/install.html), [OpenCV](https://docs.opencv.org/3.4.1/d2/de6/tutorial_py_setup_in_ubuntu.html), [matplotlib](https://matplotlib.org/users/installing.html), [Jupyter](http://jupyter.org/install).
 
 ### Usage
 
@@ -52,3 +52,12 @@ Segment the videos according to the annotations  (around 13GB). After segmentati
 python segment.py --annotations data/annotations/train.txt --raw data/raw_videos/ --output data/clips
 python segment.py --annotations data/annotations/test.txt --raw data/raw_videos/ --output data/clips
 ```
+
+### Demo
+
+To visualize the dataset, run the Jupyter notebook:
+```Shell
+jupyter notebook
+```
+
+In the browser, go to `http://localhost:8888/notebooks/notebooks/visualize_annotations.ipynb`. In the notebook there is a demo of loading the dataset and visualizing the video clip, target image, and the annotation.
