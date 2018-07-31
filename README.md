@@ -34,7 +34,7 @@ To visualize the dataset using the Ipython notebooks, these packages need to be 
 
 ### Usage
 
-One can run the bash script `bash ./run.sh` or follow the instructions below step by step.
+One can follow the step-by-step instructions below or just run the bash script `bash ./run.sh`.
 
 Download and unzip `data/` (around 500MB). The folder contains playlists of YouTube product review videos (`playlists/`), product images (`images/`), and human annotations of the video segmentation and interactiion regions (`annotations/`).
 ```Shell
