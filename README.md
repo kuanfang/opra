@@ -34,6 +34,8 @@ To visualize the dataset using the Ipython notebooks, these packages need to be 
 
 ### Usage
 
+One can run the bash script `bash ./run.sh` or follow the instructions below step by step.
+
 Download and unzip `data/` (around 500MB). The folder contains playlists of YouTube product review videos (`playlists/`), product images (`images/`), and human annotations of the video segmentation and interactiion regions (`annotations/`).
 ```Shell
 wget ftp://cs.stanford.edu/cs/cvgl/OPRA/data.zip
@@ -45,7 +47,7 @@ Download the product review videos from YouTube (around 51GB). (Note that some o
 python download.py --playlist data/playlists --output data/raw_videos/
 ```
 
-Segment the videos according to the annotations  (around 13GB). Raw videos will be no longer needed and can be removed after segmentation.
+Segment the videos according to the annotations  (around 13GB). After segmentation, raw videos will be no longer needed and can be removed.
 ```Shell
 python segment.py --annotations data/annotations/train.txt --raw data/raw_videos/ --output data/clips
 python segment.py --annotations data/annotations/test.txt --raw data/raw_videos/ --output data/clips
