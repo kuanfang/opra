@@ -3,7 +3,7 @@
 ### Introduction
 The OPRA Dataset was introduced in our [Demo2Vec paper](http://ai.stanford.edu/~kuanfang/pdf/demo2vec2018cvpr) for reasoning object affordances from online demonstration videos. It contains 11,505 demonstration clips and 2,512 object images scraped from 6 popular YouTube product review channels along with the corresponding affordance annotations. More details can be found on our [website](https://sites.google.com/view/demo2vec/).
 
-<p align="center"><img width="80%" src="docs/intro.pdf" /></p>
+<p align="center"><img width="80%" src="docs/intro.png" /></p>
 
 ### Citation
 ```

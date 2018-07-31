@@ -33,14 +33,14 @@ def parse_args():
             dest='raw_video_dir',
             help='Directory of raw videos',
             type=str,
-            default='playlists')
+            default='data/playlists')
 
     parser.add_argument(
             '--output',
             dest='output_dir',
             help='The output directory.',
             type=str,
-            default='clips')
+            default='data/clips')
 
     args = parser.parse_args()
 

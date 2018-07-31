@@ -28,14 +28,14 @@ def parse_args():
             dest='playlist_dir',
             help='The playlist directory.',
             type=str,
-            default='playlists')
+            default='data/playlists')
 
     parser.add_argument(
             '--output',
             dest='output_dir',
             help='The output directory.',
             type=str,
-            default='/capri16/kuanfang/datasets/opra/raw_videos_1')
+            default='data/raw_videos')
 
     args = parser.parse_args()
 
