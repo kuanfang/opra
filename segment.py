@@ -1,5 +1,12 @@
 #!/usr/bin/env python
 
+# ---------------------------------------------------------------------
+# OPRA Dataset
+# Copyright 2018 University of Southern California, Stanford University
+# Licensed under The MIT License [see LICENSE for details]
+# Written by Kuan Fang, Te-Lin Wu
+# ---------------------------------------------------------------------
+
 """Segment videos in the OPRA Dataset according to the annotations.
 """
 

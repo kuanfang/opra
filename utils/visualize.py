@@ -1,3 +1,10 @@
+# ---------------------------------------------------------------------
+# OPRA Dataset
+# Copyright 2018 University of Southern California, Stanford University
+# Licensed under The MIT License [see LICENSE for details]
+# Written by Kuan Fang, Te-Lin Wu
+# ---------------------------------------------------------------------
+
 """Visualization utilities.
 """
 
