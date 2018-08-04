@@ -20,7 +20,7 @@ year = {2018}
 
 Install [youtube-dl](https://github.com/rg3/youtube-dl):
 ```Shell
-sudo -H pip install --upgrade youtube-dlkj:tabe 
+sudo -H pip install --upgrade youtube-dl
 ```
 
 Install [ffmpeg](https://www.ffmpeg.org/):
@@ -34,7 +34,7 @@ To visualize the dataset using Jupyter notebooks, these packages need to be inst
 
 ### Usage
 
-One can follow the step-by-step instructions below or just run the bash script `bash ./run.sh`.
+One can follow the step-by-step instructions below or just run the bash script `bash ./get_dataset.sh`.
 
 Download and unzip `data/` (around 500MB). The folder contains playlists of YouTube product review videos (`playlists/`), product images (`images/`), and human annotations of the video segmentation and interactiion regions (`annotations/`).
 ```Shell

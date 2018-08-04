@@ -1,8 +1,6 @@
 #!/usr/bin/env python
 
 """Download videos in the OPRA Dataset from YouTube.
-
-Author: Te-Lin Wu, Kuan Fang
 """
 
 from __future__ import absolute_import

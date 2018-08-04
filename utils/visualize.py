@@ -1,3 +1,6 @@
+"""Visualization utilities.
+"""
+
 import numpy as np
 import cv2
 import matplotlib.pyplot as plt
@@ -5,14 +8,19 @@ import io
 import base64
 
 
-def plot_annotation(image, points, heatmap, alpha=0.7, fig=None):
-    """Visualize the heatmap on the target image.
+def plot_annotation(image, points, heatmap, alpha=0.7):
+    """Plot the heatmap on the target image.
+
+    Args:
+        image: The target image.
+        points: The annotated points.
+        heatmap: The generated heatmap.
+        alpha: The alpha value of the overlay image.
     """
-    if fig is None:
-        fig = plt.figure(figsize=(15, 5))
-        ax1 = fig.add_subplot(1, 3, 1)
-        ax2 = fig.add_subplot(1, 3, 2)
-        ax3 = fig.add_subplot(1, 3, 3)
+    fig = plt.figure(figsize=(15, 5))
+    ax1 = fig.add_subplot(1, 3, 1)
+    ax2 = fig.add_subplot(1, 3, 2)
+    ax3 = fig.add_subplot(1, 3, 3)
 
     # Plot the image.
     image = cv2.cvtColor(image.astype('uint8'), cv2.COLOR_BGR2RGB)
@@ -37,7 +45,10 @@ def plot_annotation(image, points, heatmap, alpha=0.7, fig=None):
 
 
 def plot_video(video_path):
-    """Visualize the video clip in the Ipython notebook.
+    """Plot the video clip in the Ipython notebook.
+
+    Args:
+        video_path: Path to the video.
     """
     from IPython.display import HTML
 

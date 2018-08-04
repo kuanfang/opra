@@ -1,3 +1,6 @@
+"""OPRA Dataset.
+"""
+
 import os.path
 
 import numpy as np
@@ -20,27 +23,38 @@ class Dataset(object):
                  data_dir,
                  annotation_path,
                  num_points=10):
+        """Initialize.
+
+        Args:
+            data_dir: Dataset directory.
+            annotation_path: Path to the annotation file.
+            num_points: Number of annotated points.
+        """
         self._data_dir = data_dir
         self._num_points = num_points
         self._annotation_path = annotation_path
 
-        self._data = self.load()
+        self._load()
         self.resize_points()
 
     @ property
     def data_dir(self):
+        """Dataset directory."""
         return self._data_dir
 
     @ property
     def num_points(self):
+        """Number of annotated points."""
         return self._num_points
 
     @property
     def data(self):
+        """Data entries."""
         return self._data
 
-    def load(self):
-        data = []
+    def _load(self):
+        """Load the dataset from file."""
+        self._data = []
 
         with open(self._annotation_path, 'r') as fin:
             for line in fin:
@@ -69,11 +83,14 @@ class Dataset(object):
                         'points': np.array(points, dtype=np.float32),
                         }
 
-                data.append(entry)
-
-        return data
+                self._data.append(entry)
 
     def resize_points(self):
+        """Resize the annotated points.
+
+        The points might be annotated with respect to a different image
+        resolution. The point coordinates need to be resized after being loaded.
+        """
         for index in range(len(self.data)):
             entry = self.data[index]
             image_path = self.get_image_path(index)
@@ -87,6 +104,14 @@ class Dataset(object):
                 entry['image_shape'] = (im.shape[0], im.shape[1])
 
     def get_image_path(self, index):
+        """Get the path of the target image of the entry.
+
+        Args:
+            index: The index of the entry.
+
+        Returns:
+            The file path.
+        """
         entry = self.data[index]
 
         image_name = os.path.join(
@@ -96,6 +121,14 @@ class Dataset(object):
         return os.path.join(self._data_dir, 'images', image_name)
 
     def get_video_path(self, index):
+        """Get the path of the segmented video clip of the entry.
+
+        Args:
+            index: The index of the entry.
+
+        Returns:
+            The file path.
+        """
         entry = self.data[index]
         
         video_name = os.path.join(

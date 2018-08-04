@@ -1,8 +1,6 @@
 #!/usr/bin/env python
 
 """Segment videos in the OPRA Dataset according to the annotations.
-
-Author: Te-Lin Wu, Kuan Fang
 """
 
 from __future__ import absolute_import
