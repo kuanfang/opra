@@ -1,5 +1,8 @@
 # OPRA Dataset: Online Product Reviews for Affordances
 
+**[Kuan Fang*](ai.stanford.edu/~kuanfang/), [Te-Lin Wu](telinwu@usc.edu), [Daniel Yang](https://www.linkedin.com/in/dxyang/), [Silvio Savarese](http://svl.stanford.edu/people), [Joseph J. Lim](http://www-bcf.usc.edu/~limjj/)**
+For questions regarding OPRA Dataset please contact Kuan Fang and Te-Lin Wu.
+
 ### Introduction
 The OPRA Dataset was introduced in our [Demo2Vec paper](http://ai.stanford.edu/~kuanfang/pdf/demo2vec2018cvpr) for reasoning object affordances from online demonstration videos. It contains 11,505 demonstration clips and 2,512 object images scraped from 6 popular YouTube product review channels along with the corresponding affordance annotations. More details can be found on our [website](https://sites.google.com/view/demo2vec/).
 
