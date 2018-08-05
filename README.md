@@ -1,6 +1,7 @@
 # OPRA Dataset: Online Product Reviews for Affordances
 
-**[Kuan Fang*](ai.stanford.edu/~kuanfang/), [Te-Lin Wu](telinwu@usc.edu), [Daniel Yang](https://www.linkedin.com/in/dxyang/), [Silvio Savarese](http://svl.stanford.edu/people), [Joseph J. Lim](http://www-bcf.usc.edu/~limjj/)**
+**[Kuan Fang*](ai.stanford.edu/~kuanfang/), [Te-Lin Wu](telinwu@usc.edu), [Daniel Yang](https://www.linkedin.com/in/dxyang/), [Silvio Savarese](http://svl.stanford.edu/people) and [Joseph J. Lim](http://www-bcf.usc.edu/~limjj/)**
+
 For questions regarding OPRA Dataset please contact Kuan Fang and Te-Lin Wu.
 
 ### Introduction
