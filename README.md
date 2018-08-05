@@ -55,9 +55,12 @@ python segment.py --annotations data/annotations/test.txt --raw data/raw_videos/
 
 ### Demo
 
-To visualize the dataset, run the Jupyter notebook:
+We provide a simple demo for loading and visualizing the dataset. Please run the Jupyter notebook:
 ```Shell
 jupyter notebook
+
+# Or run remotely. 
+jupyter notebook --no-browser --port=8888
 ```
 
 Open `./notebooks/visualize_annotations.ipynb` in the browser (Chrome and FireFox are recommended) at this [link](http://localhost:8888/notebooks/notebooks/visualize_annotations.ipynb). The notebook provide a basic demo of loading the dataset and visualizing the video clip, the target image, and the annotation.
