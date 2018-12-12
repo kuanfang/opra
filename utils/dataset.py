@@ -69,14 +69,15 @@ class Dataset(object):
 
                 points = []
                 for i in xrange(self.num_points):
-                    x = float(items[8 + 2 * i])
-                    y = float(items[8 + 2 * i + 1])
+                    x = float(items[9 + 2 * i])
+                    y = float(items[9 + 2 * i + 1])
                     points.append([x, y])
 
                 points = np.array(points, dtype=np.float32)
 
                 height = float(items[6])
                 width = float(items[7])
+                action = int(items[8])
                 image_shape = (int(height), int(width))
 
                 entry = {
@@ -88,6 +89,7 @@ class Dataset(object):
                         'image': items[5],
                         'image_shape': image_shape,
                         'points': np.array(points, dtype=np.float32),
+                        'action': action,
                         }
 
                 self._data.append(entry)
